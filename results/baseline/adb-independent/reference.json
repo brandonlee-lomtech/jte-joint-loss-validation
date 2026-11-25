@@ -1,0 +1,44 @@
+{
+  "problem_id": "9784fa48c48a05089fd11b71f861ac44b928f1d94b203e1d32efefd0afb413ca",
+  "calculation_seconds": 0.00020567500178003684,
+  "estimates": {
+    "term_expected_principal_loss_usd": {
+      "estimate": 10063513.34895411,
+      "standard_error": 0.0,
+      "ci95_low": 10063513.34895411,
+      "ci95_high": 10063513.34895411
+    },
+    "term_joint_attachment_probability": {
+      "estimate": 0.027156372630856927,
+      "standard_error": 0.0,
+      "ci95_low": 0.027156372630856927,
+      "ci95_high": 0.027156372630856927
+    },
+    "term_portfolio_loss_exceedance_probability": {
+      "estimate": 0.007185934925690405,
+      "standard_error": 0.0,
+      "ci95_low": 0.007185934925690405,
+      "ci95_high": 0.007185934925690405
+    },
+    "term_portfolio_stop_loss_usd": {
+      "estimate": 171266.44543380674,
+      "standard_error": 0.0,
+      "ci95_low": 171266.44543380674,
+      "ci95_high": 171266.44543380674
+    },
+    "term_both_bonds_exhausted_probability": {
+      "estimate": 3.923917930753235e-06,
+      "standard_error": 0.0,
+      "ci95_low": 3.923917930753235e-06,
+      "ci95_high": 3.923917930753235e-06
+    }
+  },
+  "resources": {
+    "method": "exact",
+    "model_evaluations": 100,
+    "samples": 100,
+    "execution": "classical_cpu",
+    "transition_products": 30000
+  },
+  "uncertainty": "Exact finite-state reference up to floating-point error; calibration and structural uncertainty excluded."
+}

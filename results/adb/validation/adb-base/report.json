@@ -1,0 +1,87 @@
+{
+  "problem_id": "1e05d3e5593e9f38955e8ff4271a15d65e538ed6555955aff2f84e2d3f8e5fda",
+  "method": "jlref_two_site_mps_exact",
+  "execution": "classical_cpu",
+  "relative_tolerance": 1e-09,
+  "within_tolerance": true,
+  "resources": {
+    "elapsed_seconds": 0.004024363999633351,
+    "preparation_seconds": 0.0033045060008589644,
+    "shots": 0,
+    "qubits": 0,
+    "model_evaluations": 0
+  },
+  "resource_status": "self_reported",
+  "comparisons": [
+    {
+      "target": "term_expected_principal_loss_usd",
+      "estimate": 10063513.348953877,
+      "reference": 10063513.348954104,
+      "error": -2.2724270820617676e-07,
+      "absolute_error": 2.2724270820617676e-07,
+      "relative_error": 2.2580852265654717e-14,
+      "ci95_contains_reference": null,
+      "within_tolerance": true
+    },
+    {
+      "target": "term_joint_attachment_probability",
+      "estimate": 0.04413776873084219,
+      "reference": 0.0441377687308437,
+      "error": -1.5057399771478686e-15,
+      "absolute_error": 1.5057399771478686e-15,
+      "relative_error": 3.4114546802988926e-14,
+      "ci95_contains_reference": null,
+      "within_tolerance": true
+    },
+    {
+      "target": "term_portfolio_loss_exceedance_probability",
+      "estimate": 0.012046720907532817,
+      "reference": 0.012046720907534048,
+      "error": -1.231653667943533e-15,
+      "absolute_error": 1.231653667943533e-15,
+      "relative_error": 1.0223974452444182e-13,
+      "ci95_contains_reference": null,
+      "within_tolerance": true
+    },
+    {
+      "target": "term_portfolio_stop_loss_usd",
+      "estimate": 282354.6985660242,
+      "reference": 282354.6985661411,
+      "error": -1.1688098311424255e-07,
+      "absolute_error": 1.1688098311424255e-07,
+      "relative_error": 4.139509053959072e-13,
+      "ci95_contains_reference": null,
+      "within_tolerance": true
+    },
+    {
+      "target": "term_both_bonds_exhausted_probability",
+      "estimate": 3.1633046309130664e-05,
+      "reference": 3.163304630917947e-05,
+      "error": -4.88094265525818e-17,
+      "absolute_error": 4.88094265525818e-17,
+      "relative_error": 1.5429884961290617e-12,
+      "ci95_contains_reference": null,
+      "within_tolerance": true
+    }
+  ],
+  "environment": {
+    "version": "0.5.0",
+    "python": "3.12.16",
+    "platform": "Linux-6.12.113+-x86_64-with-glibc2.41",
+    "numpy": "2.5.5",
+    "scipy": "1.18.1",
+    "source_sha256": {
+      "__init__.py": "f7d296be6c649c1540e436e1300ec52a981b917e8207a7550f18f6fa05296019",
+      "bond.py": "5b0f867816470fdac69188d09f1121f65dc68ba8d9240755e7fea64b6e43f9ea",
+      "cli.py": "1dbafa5815e61597e614366628db4e8910afb76bb20da67808a54dc085998508",
+      "evaluation.py": "f0248efa281b43aebc634ae8fc209506fc0ae9e1ec92966938486dfca664cbf4",
+      "holdout.py": "e9499212a36a81ef832a56930434fa667566f293e2467619d8e12ddee6fffde0",
+      "model.py": "bfae7be5c540c0a9c9cadcf6f8277b03430e3016d56ec0374be7eae858c99228",
+      "validation.py": "b63e56fea8e78dd93dacf0718742a5a391738fac61fbc76fa0a1acaa8e26a8fb",
+      "worker.py": "d02b2d4406f2493fd9e1c30eb9d712df352b3e7cec83f3157533f312c40b19b9"
+    }
+  },
+  "model_preparation_seconds": 0.0068493190010485705,
+  "reference_seconds": 0.0002613559991004877,
+  "submission_sha256": "7d6a3c2aa3f5a89924d4373b261721fff757565e44224aea562b8c92dd0b462e"
+}

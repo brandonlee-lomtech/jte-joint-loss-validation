@@ -1,0 +1,5 @@
+# Direct dependencies (exact tested pins are in requirements.lock.txt)
+numpy>=2.0,<3
+scipy>=1.12,<2
+matplotlib>=3.8,<4
+pytest>=8,<10

@@ -1,0 +1,18 @@
+Third-party material in this repository
+=======================================
+
+vendor/qjlb-benchmark/
+  Official public benchmark of the ADB Quantum Joint-Loss Challenge
+  ("joint-loss-baseline" v0.5.0, command `qjlb`; author listed in its pyproject:
+  James Edward Ball). Licensed under the Apache License 2.0; see
+  vendor/qjlb-benchmark/LICENSE. Included unmodified: every file is byte-identical
+  to the official public ZIP and matches vendor/qjlb-benchmark/SHA256SUMS. The
+  `.gitignore` entry in SHA256SUMS is absent from the public ZIP and is therefore
+  not included.
+
+vendor/qjlb-benchmark/data/seismic.npz, flood.npz and related data files
+  Derived from World Bank Central Asia seismic and flood risk Event Loss Tables,
+  licensed under Creative Commons Attribution 4.0 (CC BY 4.0). Sources, credits and
+  changes are listed in vendor/qjlb-benchmark/data/LICENSE.txt.
+
+The Evaluation-Only License in LICENSE applies only to material outside vendor/.

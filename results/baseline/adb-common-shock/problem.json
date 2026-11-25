@@ -1,0 +1,62 @@
+{
+  "problem_id": "17c6ca392bb7c5e8f47af39f8c6a0e41e95a99c121a7ccd3934f30bd87acf328",
+  "definition_version": "adb-quarter-step-principal-v1",
+  "config": {
+    "schema_version": 1,
+    "track": "adb_drb",
+    "terms_file": "../data/adb_terms.json",
+    "countries": [
+      "KGZ",
+      "TJK"
+    ],
+    "term_years": 3,
+    "earthquake_sublimit_usd": [
+      70000000,
+      70000000
+    ],
+    "precipitation_sublimit_usd": [
+      10000000,
+      10000000
+    ],
+    "earthquake_common_rate_multiplier": 2.0,
+    "precipitation_annual_trigger_probability": [
+      0.02,
+      0.02
+    ],
+    "precipitation_common_rate_share": 0.25,
+    "precipitation_rate_multiplier": 1.0,
+    "portfolio_threshold_usd": 80000000,
+    "assumptions": "Stationary independent Poisson events; independent perils; independent severity marks conditional on a shared earthquake. Precipitation frequency and common share are illustrative. Coupon valuation and operational trigger calculations are excluded."
+  },
+  "data_sha256": {
+    "adb_terms": "50bdb628d0a67d14966d16bda35b4ab9d6b2fc473bdec42c9a664db10cc2b69b"
+  },
+  "targets": [
+    "term_expected_principal_loss_usd",
+    "term_joint_attachment_probability",
+    "term_portfolio_loss_exceedance_probability",
+    "term_portfolio_stop_loss_usd",
+    "term_both_bonds_exhausted_probability"
+  ],
+  "uniform_dimension": 3,
+  "state_count": 100,
+  "environment": {
+    "version": "0.5.0",
+    "python": "3.12.16",
+    "platform": "Linux-6.12.113+-x86_64-with-glibc2.41",
+    "numpy": "2.5.5",
+    "scipy": "1.18.1",
+    "source_sha256": {
+      "__init__.py": "f7d296be6c649c1540e436e1300ec52a981b917e8207a7550f18f6fa05296019",
+      "bond.py": "5b0f867816470fdac69188d09f1121f65dc68ba8d9240755e7fea64b6e43f9ea",
+      "cli.py": "1dbafa5815e61597e614366628db4e8910afb76bb20da67808a54dc085998508",
+      "evaluation.py": "f0248efa281b43aebc634ae8fc209506fc0ae9e1ec92966938486dfca664cbf4",
+      "holdout.py": "e9499212a36a81ef832a56930434fa667566f293e2467619d8e12ddee6fffde0",
+      "model.py": "bfae7be5c540c0a9c9cadcf6f8277b03430e3016d56ec0374be7eae858c99228",
+      "validation.py": "b63e56fea8e78dd93dacf0718742a5a391738fac61fbc76fa0a1acaa8e26a8fb",
+      "worker.py": "d02b2d4406f2493fd9e1c30eb9d712df352b3e7cec83f3157533f312c40b19b9"
+    }
+  },
+  "model_preparation_seconds": 0.0027757289972214494,
+  "timing_scope": "Estimator time includes method-specific preparation; one-off time also includes common data loading, verification and CDF construction. Interpreter startup and output writing are excluded."
+}

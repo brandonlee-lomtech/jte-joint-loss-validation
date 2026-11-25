@@ -1,0 +1,26 @@
+{
+  "problem_id": "1e0742ee4814e3c47d3ce0ed4c697bcb791ec06468a6a04603a6e4262b0770f3",
+  "method": "jlref_two_site_mps_exact",
+  "execution": "classical_cpu",
+  "estimates": {
+    "term_expected_principal_loss_usd": 11170505.731674042,
+    "term_joint_attachment_probability": 0.0704638965998745,
+    "term_portfolio_loss_exceedance_probability": 0.013215038883592897,
+    "term_portfolio_stop_loss_usd": 306285.7963274962,
+    "term_both_bonds_exhausted_probability": 6.92456566845693e-05
+  },
+  "intervals": {
+    "term_expected_principal_loss_usd": null,
+    "term_joint_attachment_probability": null,
+    "term_portfolio_loss_exceedance_probability": null,
+    "term_portfolio_stop_loss_usd": null,
+    "term_both_bonds_exhausted_probability": null
+  },
+  "resources": {
+    "elapsed_seconds": 0.007994872001290787,
+    "preparation_seconds": 0.007209873998363037,
+    "shots": 0,
+    "qubits": 0,
+    "model_evaluations": 0
+  }
+}
