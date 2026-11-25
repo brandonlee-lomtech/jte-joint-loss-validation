@@ -150,6 +150,109 @@ regional  n= 50 rtol=1e-16:    2.2s chi=14 rc=0
 chain     n=400 rtol=1e-12:   43.6s chi=9 rc=0
 ```
 
+### R7. Matched official budget (10 x 8,192 paths) on n-country pools: relative RMSE vs the MPS value  [source: full-engine table T12]
+
+| Dependence graph | n | Sampler | E[L] | P(>=2 pay) | P(L>T) | Stop-loss | P(>=2 exh) | P(>=3 exh) |
+|---|---:|---|---:|---:|---:|---:|---:|---:|
+| allpairs | 5 | MC | 1.8% ✗ | 1.9% | 20.1% ✗ | 22.4% ✗ | 9.0% | 41.1% ✗ |
+| allpairs | 5 | IS (tilted x4, defensive) | 1.1% ✗ | 1.3% | 10.6% ✗ | 12.1% ✗ | 5.8% | 26.3% ✗ |
+| allpairs | 10 | MC | 1.2% ✗ | 1.1% | 6.9% ✗ | 8.9% ✗ | 5.3% | 11.4% ✗ |
+| allpairs | 10 | IS (tilted x4, defensive) | 1.2% ✗ | 1.3% | 3.9% | 2.9% | 3.6% | 9.5% |
+| allpairs | 20 | MC | 0.6% | 0.5% | 1.7% | 2.9% | 2.7% | 6.1% |
+| allpairs | 20 | IS (tilted x4, defensive) | 1.1% ✗ | 1.2% | 2.6% | 2.6% | 3.0% | 7.0% |
+| chain | 5 | MC | 1.9% ✗ | 2.6% | 17.3% ✗ | 18.8% ✗ | 7.7% | 44.9% ✗ |
+| chain | 5 | IS (tilted x4, defensive) | 1.0% ✗ | 1.6% | 9.0% ✗ | 8.4% ✗ | 9.1% | 13.8% ✗ |
+| chain | 10 | MC | 1.2% ✗ | 1.5% | 6.5% ✗ | 8.1% ✗ | 5.3% | 19.5% ✗ |
+| chain | 10 | IS (tilted x4, defensive) | 0.9% | 1.5% | 5.5% ✗ | 6.9% ✗ | 3.1% | 11.3% ✗ |
+| chain | 20 | MC | 0.7% | 0.5% | 2.3% | 3.6% | 2.0% | 6.8% |
+| chain | 20 | IS (tilted x4, defensive) | 1.1% ✗ | 1.2% | 1.4% | 3.3% | 4.0% | 8.4% |
+| longrange | 5 | MC | 1.6% ✗ | 1.9% | 21.0% ✗ | 23.0% ✗ | 10.9% ✗ | 42.8% ✗ |
+| longrange | 5 | IS (tilted x4, defensive) | 1.3% ✗ | 2.6% | 8.2% ✗ | 6.8% ✗ | 9.1% | 14.8% ✗ |
+| longrange | 10 | MC | 1.1% ✗ | 1.4% | 5.7% ✗ | 5.1% ✗ | 4.2% | 11.2% ✗ |
+| longrange | 10 | IS (tilted x4, defensive) | 0.9% | 1.4% | 3.9% | 2.6% | 4.9% | 6.7% |
+| longrange | 20 | MC | 0.8% | 0.4% | 1.9% | 2.8% | 2.8% | 6.2% |
+| longrange | 20 | IS (tilted x4, defensive) | 1.2% ✗ | 0.9% | 2.7% | 3.1% | 3.7% | 4.1% |
+| regional | 5 | MC | 1.5% ✗ | 2.6% | 17.0% ✗ | 15.3% ✗ | 7.4% | 34.6% ✗ |
+| regional | 5 | IS (tilted x4, defensive) | 1.2% ✗ | 1.4% | 10.9% ✗ | 12.9% ✗ | 5.8% | 26.5% ✗ |
+| regional | 10 | MC | 0.6% | 1.0% | 3.9% | 7.7% ✗ | 4.2% | 11.4% ✗ |
+| regional | 10 | IS (tilted x4, defensive) | 0.9% | 1.1% | 6.0% ✗ | 5.7% ✗ | 4.9% | 5.9% |
+| regional | 20 | MC | 0.5% | 0.4% | 2.0% | 3.9% | 2.6% | 5.8% |
+| regional | 20 | IS (tilted x4, defensive) | 0.8% | 1.1% | 2.6% | 4.6% | 2.5% | 6.7% |
+
+The official qjlb samplers are specific to the two-country model; these are event-level analogues (plain MC, and defensive importance sampling with earthquake rates x4 mixed 50/50 with the true law). The MPS value at rtol 1e-16 is the reference. ✗ = outside the official tolerance.
+
+### R8. Heterogeneous marginals (each country its own frequency, severity mix, rain rate and cover size; 3-year term)  [source: full-engine table T14]
+
+| Structure | n | max bond rtol 1e-12 / 1e-16 | auto-chi | time (1e-12) | 1 - Z | vs dense: max rel. target error | vs MC: max abs z (bulk) | vs tilted IS: max abs z (exhaustion) | all targets within tolerance |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| chain | 5 | 10 / 10 | 8->10 | 0.02 s | 4e-14 | 3e-14 | 1.6 | 1.4 | yes |
+| chain | 10 | 10 / 10 | 8->10 | 0.03 s | 2e-13 | n/a (10^n states) | 1.4 | 1.1 | yes |
+| chain | 20 | 10 / 10 | 8->10 | 0.12 s | 5e-13 | n/a (10^n states) | 0.7 | 1.1 | yes |
+| regional | 5 | 29 / 40 | 16->29 | 0.06 s | 1e-13 | 2e-10 | 0.8 | 0.9 | yes |
+| regional | 10 | 26 / 42 | 16->26 | 0.17 s | 4e-11 | n/a (10^n states) | 0.8 | 0.7 | yes |
+| regional | 20 | 21 / 40 | 21->21 | 0.42 s | 5e-08 | n/a (10^n states) | 2.3 | 0.4 | yes |
+
+Targets: E[L], P(>=2 pay), P(L > USD 160m), stop-loss, P(>=2 exhausted), P(>=3 exhausted), P(all pay). Earthquake rates x0.3-3 of the ADB rates, Dirichlet-perturbed severity mix, rain 0.5-5 %/yr, covers USD 40-120m + 5-15m (seed 7). Labelled extension of the official model. P(all pay) at n >= 10 is below the MC resolution and is only checked against the absolute floor.
+
+### R9. Multi-peril (earthquake + flood) from the World Bank ELTs: MPS vs independent dense law  [source: full-engine table T15]
+
+| Countries | sites (EQ + flood) | event-pattern processes | max bond | MPS time | dense time (states) | max abs diff, full law | max rel. target error |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| KGZ, TJK | 4 | 17 | 5 | 0.00 s | 0.0 s (625) | 5e-15 | 4e-13 |
+| KGZ, TJK, KAZ | 6 | 35 | 5 | 0.02 s | 0.0 s (15,625) | 1e-14 | 7e-13 |
+| KGZ, TJK, KAZ, UZB | 8 | 73 | 25 | 0.16 s | 0.8 s (390,625) | 2e-14 | 1e-10 |
+| KGZ, TJK, KAZ, UZB, TKM | 10 | 97 | 25 | 0.48 s | 73.9 s (9,765,625) | 2e-14 | 2e-08 |
+
+ELT rows are Poisson events with their stated annual rates (as in the official ELT track); mean losses, secondary uncertainty ignored. Steps per event: 35 % at 5.3 %/yr exceedance, 70 % at 1-in-50, 100 % at 1-in-150 (see T16).
+
+### R10. Public-structure-based illustrative product: pooled 3-year cat-bond payouts, 5 Central Asian countries  [source: full-engine table T16]
+
+| Measure | JTE (ELT dependence, exact) | Independence (exact) | Gaussian copula (pairwise matched, MC 2M) |
+|---|---:|---:|---:|
+| EL | USD 93.1m | USD 93.1m | USD 93.1m |
+| VaR99.5 | USD 420.0m | USD 367.5m | USD 435.0m |
+| ES99.5 | USD 475.4m | USD 415.8m | USD 497.2m |
+| P(L>T) | 9.49 % | 7.75 % | 9.48 % |
+| Stop-loss | USD 6.66m | USD 4.27m | USD 7.05m |
+| P(>=2 classes pay) | 44.8 % | 45.9 % | 44.6 % |
+| P(>=2 classes exhausted) | 3.04 % | 2.46 % | 2.93 % |
+| Risk-loaded premium, EL + 6 % x (ES99.5 - EL) | USD 116.05m | USD 112.47m | USD 117.32m |
+
+Structure modelled on the World Bank 2019 Philippines cat bond (IBRD CAR 123-124): per country Class A earthquake USD 75m and Class B flood USD 150m (Philippines: EQ USD 75m, tropical cyclone USD 150m), 3-year term, stepped principal reductions 35 / 70 / 100 %, attachment probability 5.3 % (published). The 70 % (1-in-50) and 100 % (1-in-150, PCRIC's highest exhaustion option) step points are assumptions. Pool notional USD 1125m; T = USD 225m. Modelled expected loss per class: 2.75-2.76 % of limit a year (the Philippine classes were issued at 3.00 % expected loss). Not a real product for these countries.
+
+Public sources for the structure: World Bank case study https://thedocs.worldbank.org/en/doc/58d421407f57c5eb8d0f35ad843ae474-0340012022/original/case-study-Philippines-CAT-bond.pdf ; OECD, Fostering Catastrophe Bond Markets in Asia and the Pacific, Table 4.2 https://www.oecd.org/en/publications/fostering-catastrophe-bond-markets-in-asia-and-the-pacific_ab1e49ef-en/full-report/component-8.html ; Artemis https://www.artemis.bm/deal-directory/ibrd-car-123-124/ ; PCRIC KP-4 https://pcric.org/wp-content/uploads/2024/11/KP-4.pdf
+
+### R11. Tail-aware truncation attempt, n = 20 (rel. difference to the norm rtol 1e-16 build)  [source: full-engine table T17]
+
+| Pool | Method | max bond | 1 - Z | time | E[L] | P(all pay) | P(L>T) | Stop-loss | P(all exhausted) |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| allpairs | norm rtol 1e-12 | 11 | 2e-08 | 4.7 s | -0.00 % | -0.83 % | -2.05 % | -2.46 % | -29.58 % |
+| allpairs | norm rtol 1e-14 | 17 | 2e-10 | 8.1 s | -0.00 % | -0.09 % | -0.17 % | -0.22 % | -8.11 % |
+| allpairs | norm rtol 1e-16 | 17 | 2e-11 | 12.0 s | +0.00 % | +0.00 % | +0.00 % | +0.00 % | +0.00 % |
+| allpairs | pay-tilt beta=4, rtol 1e-12 | 23 | 2e-12 | 14.7 s | +0.00 % | +0.02 % | +0.03 % | +0.04 % | +11.01 % |
+| allpairs | pay-tilt beta=16, rtol 1e-12 | 23 | 2e-12 | 24.6 s | +0.00 % | +0.02 % | +0.03 % | +0.04 % | +11.37 % |
+| allpairs | level-tilt g=4, rtol 1e-12 | 31 | 4e-01 | 13.1 s | +13.58 % | +51.95 % | +54.42 % | +54.44 % | +72.00 % |
+| allpairs | pay-tilt beta=16, rtol 1e-14 | 23 | 1e-12 | 33.4 s | +0.00 % | +0.02 % | +0.03 % | +0.04 % | +11.37 % |
+| allpairs | exh-tilt beta=16, rtol 1e-12 | 23 | 5e-12 | 15.3 s | +0.00 % | +0.02 % | +0.03 % | +0.04 % | +11.37 % |
+| allpairs | exh-tilt beta=256, rtol 1e-12 | 29 | 4e-01 | 10.9 s | +14.91 % | +61.07 % | +64.05 % | +64.09 % | +82.79 % |
+| regional | norm rtol 1e-12 | 18 | 1e-07 | 0.4 s | -0.00 % | -0.18 % | +0.06 % | +0.07 % | -92.29 % |
+| regional | norm rtol 1e-14 | 25 | 1e-09 | 0.5 s | -0.00 % | -0.00 % | -0.00 % | -0.00 % | -2.38 % |
+| regional | norm rtol 1e-16 | 37 | 2e-10 | 0.5 s | +0.00 % | +0.00 % | +0.00 % | +0.00 % | +0.00 % |
+| regional | pay-tilt beta=4, rtol 1e-12 | 47 | 5e-13 | 0.5 s | +0.00 % | +0.00 % | -0.00 % | +0.00 % | -0.00 % |
+| regional | pay-tilt beta=16, rtol 1e-12 | 43 | 4e-08 | 0.5 s | -0.00 % | +0.00 % | -0.00 % | +0.00 % | -0.00 % |
+| regional | level-tilt g=4, rtol 1e-12 | 21 | 1e+00 | 0.4 s | +358.80 % | +5729.02 % | +5728.58 % | +5735.74 % | +5744.11 % |
+| regional | pay-tilt beta=16, rtol 1e-14 | 53 | 5e-10 | 0.6 s | +0.00 % | +0.00 % | -0.00 % | +0.00 % | -0.00 % |
+| regional | exh-tilt beta=16, rtol 1e-12 | 24 | 3e-01 | 0.4 s | +21.27 % | +36.91 % | +36.91 % | +36.91 % | +36.91 % |
+| regional | exh-tilt beta=256, rtol 1e-12 | 14 | 1e+00 | 0.3 s | +367.27 % | +7398.14 % | +7229.46 % | +7395.08 % | +7624.83 % |
+
+Reference values (rtol 1e-16): allpairs: P(all pay) 1.17e-13, P(all exh) 3.12e-44; regional: P(all pay) 1.91e-06, P(all exh) 7.46e-30. Independent check (regional, defensive IS tilting only the regional shock, 4M paths): P(all pay) 1.81e-06 +- 3e-07 (pay-tilt JTE 1.91e-06), P(L>T) 0.000106 +- 3e-06 (JTE 0.000108), stop-loss 6355 +- 180 (JTE 6558). Pure exponential tilting of all ~250 processes (kappa 8, 20) FAILED as a reference (weight degeneracy); no independent reference exists for P(all exhausted) (< 1e-29).
+
+### R12. Scaling comparison figure  [source: full-engine figure fig6, experiment E17]
+
+![Figure 6 (full engine)](figures/reported_fig6_scaling_comparison.png)
+
+(a) Relative error at the official budget (10 x 8,192 paths): plain MC and defensive IS (mean over four dependence structures) vs the JTE truncation error; (b) paths needed to meet the official tolerance, CLT extrapolation from (a), vs one contraction; n = 2 points are the exact-variance budgets of R4 incl. QAE oracle calls; (c) JTE wall time vs n. Computed from the E7/E13 outputs with no new sampling. Copied image; not reproducible from this repository.
+
 ### Withheld-method results not reproduced here
 
-Dependence-stress tests (independent / Gaussian / Student-t / shared-event), non-chain dependence (regional, long-range, all-pairs) and automatic bond-dimension selection are described in the Technical Proposal. Their code is withheld; see README, section "What is withheld and why".
+Dependence-stress tests (independent / Gaussian / Student-t / shared-event), non-chain dependence (regional, long-range, all-pairs), heterogeneous marginals, the multi-peril ELT construction and its dense reference, the public-structure product example, tail-aware truncation and automatic bond-dimension selection are described in the Technical Proposal. Their code is withheld; see README, section "What is withheld and why".

@@ -1,7 +1,8 @@
 # Lightweight prototype: exact joint-loss reference solver (ADB Quantum Joint-Loss Challenge)
 
 **ADB Quantum Innovation Challenge: Joint-Loss Modelling for Disaster Risk Financing, Phase 1 lightweight prototype.**
-Applicant: LOMTECH GLOBAL Co., Ltd. (Republic of Korea).
+Team: **LOMTech JTE**. Applicant: LOMTECH GLOBAL Co., Ltd. (Republic of Korea).
+Full engine (private): https://github.com/brandonlee-lomtech/adb-jte-joint-loss, available to the ADB evaluation panel on request (brandon@ecit.tech).
 
 ## Purpose
 
@@ -72,7 +73,7 @@ qjlb evaluate <suite> --execution classical_cpu --trusted-code -- python "$PWD/t
 | Wall time, two-country | `results/timing.md` | milliseconds; parity with the official exact solver (no speed-up) |
 | Official practice suite (`qjlb evaluate`, 3 ADB + 3 World Bank cases) | `results/practice_suite_summary.csv` | 6/6 cases pass (worst normalised RMSE <= 2.1e-9); time ratio this solver / official exact 0.88-1.02 (parity, process start-up dominated); official samplers passing: 1 of 4 in case-001, 0 of 4 in the other five cases |
 
-Results produced by our full engine (n-country scaling, decision quantities, QAE resource estimates) are listed separately in [REPORTED_RESULTS.md](REPORTED_RESULTS.md). They are reported, not reproduced, here.
+Results produced by our full engine are listed separately in [REPORTED_RESULTS.md](REPORTED_RESULTS.md): n-country scaling (R1), decision quantities (R2), QAE resource estimates (R3, R4), the 60 s limits (R5, R6), the matched sampling budget (R7, proposal Table 12), heterogeneous marginals (R8, Table 14), earthquake + flood from the World Bank ELTs (R9, Table 15), the public-structure-based product example (R10, Table 16), tail-aware truncation including its failures (R11, Table 17) and the scaling comparison figure (R12, Figure 6). They are reported, not reproduced, here.
 
 ## What is withheld and why
 
@@ -89,7 +90,7 @@ The Challenge asks for a *lightweight* prototype that validates the proposal. We
 
 The public two-site recompression contracts back to a dense 10 x 10 matrix each year. That is exact and fast for two countries but costs O(10^n) and is not how the full engine scales.
 
-**Access for the evaluation panel.** The full engine and the scripts that produce every number in `REPORTED_RESULTS.md` are available to the ADB evaluation panel on request, under confidentiality, in Phase 2.
+**Access for the evaluation panel.** The full engine and the scripts that produce every number in `REPORTED_RESULTS.md` are in the private repository https://github.com/brandonlee-lomtech/adb-jte-joint-loss and are available to the ADB evaluation panel on request (brandon@ecit.tech), under confidentiality.
 
 ## Environment
 
