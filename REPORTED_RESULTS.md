@@ -81,29 +81,41 @@ QAE: M = k * pi * sqrt(a(1-a)) / eps. Variances are exact (full enumeration of t
 
 ### R5. Largest portfolio within the official tolerances and the official 60 s per-run limit  [source: full-engine table T11; one internal tuning column omitted]
 
-| Dependence graph | n | processes | rtol 1e-12: time / chi / 1-Z / pass | rtol 1e-16: time / chi / 1-Z / pass | max abs z vs reference (paths) |
+| Dependence graph | n | processes | rtol 1e-12: time / chi / 1-Z / pass | rtol 1e-16: time / chi / 1-Z / pass | max abs z vs reference, rtol 1e-12 build (paths) |
 |---|---:|---:|---|---|---:|
 | allpairs | 5 | 24 | 0.2 s / 10 / 5e-13 / pass | 0.1 s / 13 / 4e-14 / pass | 1.5 (1,000,000) |
 | allpairs | 10 | 74 | 0.8 s / 10 / 3e-11 / pass | 1.2 s / 14 / 2e-12 / pass | 1.0 (1,000,000) |
 | allpairs | 15 | 149 | 2.2 s / 10 / 3e-09 / pass | 5.9 s / 16 / 6e-12 / pass | 1.1 (400,000) |
 | allpairs | 20 | 249 | 6.9 s / 11 / 2e-08 / pass | 17.1 s / 18 / 2e-11 / pass | 1.3 (400,000) |
+| allpairs | 25 | 374 | 17.1 s / 14 / 9e-08 / pass | 34.5 s / 18 / 2e-10 / pass | 1.4 (100,000) |
+| allpairs | 30 | 524 | 21.3 s / 15 / 3e-07 / pass | not run | 1.8 (100,000) |
+| allpairs | 35 | 699 | 34.8 s / 17 / 8e-07 / pass | not run | 1.6 (100,000) |
+| allpairs | 40 | 899 | 55.2 s / 17 / 2e-06 / pass | not run | 2.4 (100,000) |
 | chain | 5 | 18 | 0.0 s / 9 / 4e-14 / pass | 0.0 s / 10 / 1e-15 / pass | 2.6 (1,000,000) |
 | chain | 10 | 38 | 0.0 s / 9 / 9e-14 / pass | 0.0 s / 10 / 4e-15 / pass | 1.1 (1,000,000) |
 | chain | 20 | 78 | 0.1 s / 9 / 2e-13 / pass | 0.1 s / 10 / 1e-14 / pass | 1.7 (400,000) |
 | chain | 50 | 198 | 0.7 s / 9 / 4e-13 / pass | 0.8 s / 10 / 8e-14 / pass | 1.8 (100,000) |
 | chain | 100 | 398 | 2.7 s / 9 / 6e-13 / pass | 3.0 s / 10 / 3e-13 / pass | 1.3 (100,000) |
 | chain | 200 | 798 | 11.2 s / 9 / 3e-12 / pass | 11.9 s / 10 / 1e-12 / pass | 1.3 (100,000) |
+| chain | 400 | 1598 | 45.1 s / 9 / 5e-12 / pass | 46.5 s / 10 / 2e-13 / pass | 1.3 (100,000) |
+| chain | 500 | 1998 | 71.7 s / 9 / 7e-12 / time | 78.6 s / 10 / 2e-12 / time | 1.0 (100,000) |
 | longrange | 5 | 20 | 0.0 s / 27 / 3e-13 / pass | 0.0 s / 38 / 2e-14 / pass | 1.3 (1,000,000) |
 | longrange | 10 | 43 | 0.3 s / 69 / 3e-12 / pass | 0.8 s / 121 / 9e-14 / pass | 2.8 (1,000,000) |
 | longrange | 15 | 65 | 7.4 s / 156 / 2e-11 / pass | 29.9 s / 322 / 5e-13 / pass | 1.0 (400,000) |
+| longrange | 20 | 88 | 26.6 s / 258 / 1e-10 / pass | 188.7 s / 714 / 2e-12 / time | 1.2 (400,000) |
+| longrange | 22 | 97 | 145.5 s / 507 / 2e-09 / time | not run | 1.7 (100,000) |
+| longrange | 25 | 110 | 96.1 s / 486 / 1e-09 / time | not run | 0.5 (100,000) |
 | regional | 5 | 19 | 0.2 s / 23 / 6e-13 / pass | 0.1 s / 36 / 2e-15 / pass | 1.8 (1,000,000) |
 | regional | 10 | 39 | 0.3 s / 23 / 2e-10 / pass | 0.3 s / 40 / 2e-13 / pass | 1.0 (1,000,000) |
 | regional | 20 | 79 | 0.6 s / 18 / 1e-07 / pass | 0.8 s / 37 / 2e-10 / pass | 1.8 (400,000) |
+| regional | 30 | 119 | 1.1 s / 12 / 2e-04 / pass | 1.4 s / 26 / 3e-08 / pass | 1.5 (100,000) |
+| regional | 40 | 159 | 1.5 s / 10 / 8e-03 / FAIL acc | 1.7 s / 20 / 5e-05 / pass | 13.6 (100,000) |
 | regional | 50 | 199 | 2.0 s / 9 / 2e-02 / FAIL acc | 2.2 s / 14 / 2e-04 / pass | 32.8 (100,000) |
+| regional | 70 | 279 | 3.2 s / 9 / 2e-02 / FAIL acc | 3.8 s / 11 / 2e-02 / FAIL acc | 32.4 (100,000) |
 | regional | 100 | 399 | 5.0 s / 9 / 2e-02 / FAIL acc | 6.2 s / 10 / 2e-02 / FAIL acc | 34.4 (100,000) |
 | regional | 200 | 799 | 15.7 s / 9 / 2e-02 / FAIL acc | 16.8 s / 10 / 2e-02 / FAIL acc | 37.4 (100,000) |
 
-Largest n passing (any setting): allpairs n = 20, chain n = 200, longrange n = 15, regional n = 50. Targets: E[L], P(>=2 pay), P(L > USD 160m), E[(L - 160m)+], P(>=2 exhausted), P(>=3 exhausted); official relative tolerances with official absolute floors (money floors scaled to USD 80m x n). Pass = run <= 60 s and every target within tol + 3 se of an independent MC (bulk) / tilted-IS (exhaustion) reference. Times are single-process wall clock measured with 4 experiments running in parallel on 8 cores.
+Largest n passing (any setting): allpairs n = 40, chain n = 400, longrange n = 20, regional n = 50. Targets: E[L], P(>=2 pay), P(L > USD 160m), E[(L - 160m)+], P(>=2 exhausted), P(>=3 exhausted); official relative tolerances with official absolute floors (money floors scaled to USD 80m x n). Pass = run <= 60 s and every target within tol + 3 se of an independent MC (bulk) / tilted-IS (exhaustion) reference. Times in this table were measured while other experiments ran in parallel (2 BLAS threads each; allpairs n >= 30 with 1 thread); clean timings are in T11b. With clean single-thread timing the limits are: chain n = 450 (56 s; accuracy verified at n = 400 and 500), regional n = 50 (accuracy-limited: needs rtol 1e-16; fails at n = 70 even at rtol 1e-16), long-range n = 20 (21 s; n = 21 takes 63 s), all-pairs n = 40 (58 s).
 
 ### R6. Re-timing of the largest passing sizes  [source: full-engine run logs e13b, verbatim]
 
@@ -135,6 +147,7 @@ allpairs  n= 40 rtol=1e-12:   58.2s chi=17 rc=0
 longrange n= 22 rtol=1e-12:  122.1s chi=507 rc=0
 chain     n=500 rtol=1e-12:   69.9s chi=9 rc=0
 regional  n= 50 rtol=1e-16:    2.2s chi=14 rc=0
+chain     n=400 rtol=1e-12:   43.6s chi=9 rc=0
 ```
 
 ### Withheld-method results not reproduced here
