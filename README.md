@@ -106,5 +106,5 @@ See [AI_USE.md](AI_USE.md).
 
 ## License
 
-* Our code and documents (everything outside `vendor/`): **all rights reserved**; permission is granted to view and run them solely to evaluate our ADB Quantum Innovation Challenge submission. See [LICENSE](LICENSE).
+* Our code and documents (everything outside `vendor/`): **all rights reserved**; permission is granted to view and run them solely to evaluate our ADB Quantum Innovation Challenge submission. See [LICENSE](LICENSE). Permissions: brandon@ecit.tech.
 * `vendor/qjlb-benchmark/`: Apache-2.0. World Bank-derived data: CC BY 4.0. See [NOTICE](NOTICE).
